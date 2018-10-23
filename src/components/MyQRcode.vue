@@ -1,5 +1,9 @@
 <template lang='pug'>
   .MyQRcode
+    //- 顯示掃描得到的內容
+    p {{ content }}
+    //- 掃描器
+    QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused" style="max-height: 50vh")
     //- 修改QRcode的內容
     span qrcode value：
     input(type="text" v-model="qrcode")
@@ -7,10 +11,6 @@
     br
     //- QRcode 圖片
     qrcode(:value="qrcode" :options="options" tag="img")
-    //- 顯示掃描得到的內容
-    p {{ content }}
-    //- 掃描器
-    QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused" style="max-height: 50vh")
     //- 對話框
     AlertDialog(:title="dialog.title" :body="dialog.body" :show="dialog.show" @btnClicked="btnClicked")
 </template>
