@@ -7,16 +7,18 @@
     qrcode(:value="qrcode" :options="options" tag="img")
     p {{ content }}
     QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused")
+    AlertDialog(:title="dialog.title" :body="dialog.body" :show="dialog.show" @btnClicked="btnClicked")
 </template>
 
 <script>
+import AlertDialog from '@/components/AlertDialog'
 import { QrcodeReader } from 'vue-qrcode-reader'
 import 'vue-qrcode-reader/dist/vue-qrcode-reader.css'
 
 export default {
   name: 'MyQRcode',
   components: {
-    QrcodeReader
+    AlertDialog, QrcodeReader
   },
   data () {
     return {
@@ -33,7 +35,12 @@ export default {
       },
       // ------------------------------------------------
       content: '',
-      paused: false
+      paused: false,
+      dialog: {
+        title: '',
+        body: '',
+        show: false
+      }
     }
   },
   methods: {
@@ -59,6 +66,22 @@ export default {
     onDecode (content) {
       this.content = content
       this.paused = true
+      this.dialog = {
+        title: '警告！您即將離開本站',
+        body: `是否確定前往 ${content}`,
+        show: true
+      }
+    },
+    btnClicked (type) {
+      if (type) {
+        window.location.href = this.content
+      } else {
+        this.dialog = {
+          title: '',
+          body: '',
+          show: false
+        }
+      }
     }
   }
 }
