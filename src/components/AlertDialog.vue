@@ -1,5 +1,5 @@
 <template lang="pug">
-  .modal(tabindex="-1" role="dialog" v-if="show")
+  .modal(role="dialog" v-if="show" style="display: block;")
     .modal-dialog(role="document")
       .modal-content
         .modal-header
