@@ -5,7 +5,7 @@
     //- 掃描器
     QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused" style="max-height: 50vh")
     //- 修改QRcode的內容
-    span qrcode value：
+    span my qrcode value：
     input(type="text" v-model="qrcode")
     br
     br
