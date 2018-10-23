@@ -1,5 +1,8 @@
 # qrcode
 
+## DEMO
+[https://piedasing.github.io/qrcode/dist](https://piedasing.github.io/qrcode/dist)
+
 ## Project setup
 ```
 npm install
