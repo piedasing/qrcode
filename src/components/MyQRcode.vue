@@ -5,7 +5,7 @@
     br
     br
     qrcode(:value="qrcode" :options="options" tag="img")
-    p {{ value }}
+    p {{ content }}
     QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused")
 </template>
 
@@ -29,11 +29,11 @@ export default {
         mime: 'image/png',
         padding: '0',
         size: 150,
-        level: 'L',
-        // ------------------------------------------------
-        value: '',
-        paused: false
-      }
+        level: 'L'
+      },
+      // ------------------------------------------------
+      content: '',
+      paused: false
     }
   },
   methods: {
@@ -56,8 +56,8 @@ export default {
         }
       })
     },
-    onDecode (value) {
-      this.value = value
+    onDecode (content) {
+      this.content = content
       this.paused = true
     }
   }
