@@ -86,6 +86,7 @@ export default {
           body: '',
           show: false
         }
+        this.paused = false
       }
     }
   }
