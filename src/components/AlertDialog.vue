@@ -1,12 +1,12 @@
 <template lang="pug">
   transition-group(name="fade" tag="div")
-    .modal(role="dialog" v-if="show" style="display: block; transform: translateY(5rem)" key="modal")
+    .modal(role="dialog" v-if="show" key="modal")
       .modal-dialog(role="document")
         .modal-content
           .modal-header
             h5.modal-title {{ title }}
             button.close(type="button" data-dismiss="modal" aria-label="Close")
-              span(aria-hidden="true") &times;
+              span(@click="onClicked(false)") &times;
           .modal-body
             p {{ body }}
           .modal-footer
@@ -40,5 +40,13 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+.modal {
+  display: block;
+  transform: translateY(5rem);
+  .modal-content {
+    background-color: #CCC;
+    color: #333;
+  }
 }
 </style>

@@ -6,7 +6,7 @@
     br
     qrcode(:value="qrcode" :options="options" tag="img")
     p {{ content }}
-    QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused")
+    QrcodeReader(@init="onInit" @decode="onDecode" :paused="paused" style="max-height: 50vh")
     AlertDialog(:title="dialog.title" :body="dialog.body" :show="dialog.show" @btnClicked="btnClicked")
 </template>
 

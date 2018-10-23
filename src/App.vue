@@ -16,6 +16,14 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  border: none;
+  outline: none;
+  appearance: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
